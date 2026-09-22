@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!--
+  public/offline.html
+  Shown by the service worker when a navigation request fails (no network,
+  no cache hit). Matches the app's cyberpunk theme exactly.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CodeQuest — Offline</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #06050f;
+      --panel:   #1a183a;
+      --border2: #3d3890;
+      --ink:     #f0eeff;
+      --ink2:    #a89fd8;
+      --ink3:    #6a639e;
+      --violet:  #7b6ff7;
+      --violet2: #a78bfa;
+      --violetg: linear-gradient(135deg, #7b6ff7, #a78bfa);
+      --gold:    #f9c74f;
+      --red:     #ff4757;
+    }
+
+    html, body {
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border2);
+      border-radius: 24px;
+      padding: 48px 40px;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 0 24px rgba(123,111,247,0.25), 0 0 60px rgba(123,111,247,0.1);
+    }
+
+    .icon {
+      font-size: 3.5rem;
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 1.3rem;
+      letter-spacing: 0.18em;
+      font-weight: 900;
+      margin-bottom: 12px;
+      font-variant: small-caps;
+    }
+    h1 span { color: var(--violet2); }
+
+    p {
+      color: var(--ink2);
+      font-size: 0.9rem;
+      line-height: 1.65;
+      margin-bottom: 32px;
+    }
+
+    .retry {
+      display: inline-block;
+      padding: 12px 32px;
+      background: var(--violetg);
+      border: none;
+      border-radius: 9999px;
+      color: #fff;
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      font-weight: 700;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .retry:hover { opacity: 0.85; transform: translateY(-2px); }
+
+    .tip {
+      margin-top: 28px;
+      font-size: 0.72rem;
+      color: var(--ink3);
+    }
+    .tip strong { color: var(--gold); }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <span class="icon">📡</span>
+    <h1>CODE<span>QUEST</span> OFFLINE</h1>
+    <p>
+      You've ventured beyond network range, hero.<br/>
+      Your connection to the Data-Nexus has been severed.<br/>
+      Check your internet and retry to continue your quest.
+    </p>
+    <button class="retry" onclick="window.location.reload()">
+      ↻ &nbsp;RECONNECT
+    </button>
+    <p class="tip">
+      Tip: install the app as a <strong>PWA</strong> for better offline support.
+    </p>
+  </div>
+</body>
+</html>
